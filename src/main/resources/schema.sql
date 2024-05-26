@@ -1,0 +1,35 @@
+-- CREATE TABLE IF NOT EXISTS job_post (
+--     id SERIAL PRIMARY KEY,
+--     title VARCHAR(255),
+--     description TEXT,
+--     experience INT
+-- );
+--
+-- CREATE TABLE IF NOT EXISTS skills (
+--     id SERIAL PRIMARY KEY,
+--     skill_name VARCHAR(255) UNIQUE
+-- );
+--
+-- CREATE TABLE IF NOT EXISTS job_post_skills (
+--     id SERIAL PRIMARY KEY,
+--     job_post_id INT,
+--     skill_id INT,
+--     FOREIGN KEY (job_post_id) REFERENCES job_post(id),
+--     FOREIGN KEY (skill_id) REFERENCES skills(id)
+-- );
+--
+-- /* Zapytanie ktore ladnie pokazuje dane
+--  SELECT
+--     jp.id AS job_post_id,
+--     jp.title AS job_post_title,
+--     jp.description AS job_post_description,
+--     jp.experience AS job_post_experience,
+--     s.id AS skill_id,
+--     s.skill_name AS skill_name
+-- FROM
+--     job_post jp
+-- JOIN
+--     job_post_skills jps ON jp.id = jps.job_post_id
+-- JOIN
+--     skills s ON jps.skill_id = s.id;
+-- */

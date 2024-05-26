@@ -1,5 +1,6 @@
 package com.jobapp.jobapp.model;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,11 +11,28 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Component
+@Entity
+@Table(name = "job_post")
 public class JobPost {
-    private int postId;
-    private String postProfile;
-    private String postDesc;
-    private int reqExperience;
-    private List<String> postTechStack;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
+
+    @Column(name = "title")
+    private String title;
+
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "experience")
+    private int experience;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "job_post_skills",
+            joinColumns = @JoinColumn(name = "job_post_id"),
+            inverseJoinColumns = @JoinColumn(name = "skill_id")
+    )
+    private List<Skill> skills;
 }

@@ -1,45 +1,48 @@
 package com.jobapp.jobapp.controller;
 
 import com.jobapp.jobapp.model.JobPost;
+import com.jobapp.jobapp.model.Skill;
+import com.jobapp.jobapp.repository.SkillRepository;
 import com.jobapp.jobapp.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-@Controller
+@RestController
+@RequestMapping("/")
 public class JobController {
 
     private final JobService jobService;
+    private final SkillRepository skillRepo;
 
     @Autowired
-    public JobController(JobService jobService) {
+    public JobController(JobService jobService, SkillRepository skillRepo) {
         this.jobService = jobService;
+        this.skillRepo = skillRepo;
     }
 
-    @RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
+    @GetMapping("/home")
     public String home(){
-        return "home";
+        return "Welcome to Job App Home";
     }
 
-    @RequestMapping(value = "/addjob", method = RequestMethod.GET)
-    public String addjob(){
-        return "addjob";
+    @GetMapping("/skills")
+    public List<Skill> getAllSkills() {
+        return jobService.getAllSkills();
     }
 
-    @RequestMapping(value = "/handleForm", method = RequestMethod.POST)
-    public String handleForm(JobPost jobPost){
-        jobService.addJobPost(jobPost);
-        return "success";
+    @PostMapping("/addjob")
+    public JobPost addJob(@RequestBody JobPost jobPost) {
+        //List<Skill> skills = skillRepo.findAllByIdIn(jobPost.getSkills().stream().map(Skill::getId).collect(Collectors.toList()));
+        //System.out.println(skills);
+        //jobPost.setSkills(skills);
+        return jobService.addJobPost(jobPost);
     }
 
-    @RequestMapping(value = "/viewalljobs", method = RequestMethod.GET)
-    public String viewAllJobs(Model model){
-        List<JobPost> jobs = jobService.getAllJobPosts();
-        model.addAttribute("jobPosts", jobs);
-        return "viewalljobs";
+    @GetMapping("/allJobs")
+    public List<JobPost> getAllJobs() {
+        return jobService.getAllJobPosts();
     }
 }
