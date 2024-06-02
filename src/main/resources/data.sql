@@ -1,26 +1,25 @@
 -- -- Wstawianie danych do tabeli job_post
 -- INSERT INTO job_post (title, description, experience) VALUES
---                                                           ('Java Developer', 'Muszą mieć doświadczenie w podstawowym i zaawansowanym Javie', 2),
---                                                           ('Frontend Developer', 'Doświadczenie w budowaniu responsywnych aplikacji internetowych przy użyciu React', 3),
+--                                                           ('Java Developer', 'Wymagane doświadczenie w podstawowym i zaawansowanym programowaniu w języku Java', 2),
+--                                                           ('Frontend Developer', 'Doświadczenie w budowaniu responsywnych aplikacji internetowych z wykorzystaniem React', 3),
 --                                                           ('Data Scientist', 'Silne podstawy w uczeniu maszynowym i analizie danych', 4),
 --                                                           ('Network Engineer', 'Projektowanie i implementacja sieci komputerowych dla efektywnej komunikacji danych', 5),
---                                                           ('Mobile App Developer', 'Doświadczenie w tworzeniu aplikacji mobilnych na iOS i Androida', 3),
---                                                           ('DevOps Engineer', 'Wdrażanie i zarządzanie ciągłymi procesami integracji i dostarczania', 4),
---                                                           ('UI/UX Designer', 'Tworzenie zaangażowanych doświadczeń użytkownika i intuicyjnych interfejsów użytkownika', 2),
+--                                                           ('Mobile App Developer', 'Doświadczenie w tworzeniu aplikacji mobilnych na platformy iOS i Android', 3),
+--                                                           ('DevOps Engineer', 'Wdrażanie i zarządzanie ciągłymi procesami integracji i dostarczania oprogramowania', 4),
+--                                                           ('UI/UX Designer', 'Tworzenie angażujących doświadczeń użytkownika oraz intuicyjnych interfejsów użytkownika', 2),
 --                                                           ('Cybersecurity Analyst', 'Ochrona systemów komputerowych i sieci przed zagrożeniami cybernetycznymi', 4),
 --                                                           ('Full Stack Developer', 'Doświadczenie zarówno w front-endzie, jak i back-endzie aplikacji', 5),
 --                                                           ('Cloud Architect', 'Projektowanie i wdrażanie rozwiązań infrastruktury chmurowej', 6),
 --                                                           ('Software Tester', 'Zapewnienie jakości oprogramowania poprzez testowanie i walidację', 3),
---                                                           ('React Native Developer', 'Rozwój aplikacji mobilnych na różne platformy przy użyciu React Native', 2),
+--                                                           ('React Native Developer', 'Tworzenie aplikacji mobilnych na różne platformy z użyciem React Native', 2),
 --                                                           ('Business Analyst', 'Analiza procesów biznesowych i rekomendowanie usprawnień', 4),
 --                                                           ('Embedded Systems Engineer', 'Projektowanie i rozwijanie systemów wbudowanych do zastosowań sprzętowych', 5),
---                                                           ('Content Writer', 'Tworzenie angażujących i informatywnych treści dla stron internetowych i publikacji', 2),
---                                                           ('Business Intelligence Analyst', 'Wykorzystanie danych do uzyskiwania wglądu i wspierania podejmowania decyzji', 4),
+--                                                           ('Content Writer', 'Tworzenie angażujących i informacyjnych treści dla stron internetowych i publikacji', 2),
+--                                                           ('Business Intelligence Analyst', 'Wykorzystanie danych do uzyskiwania wglądów i wspierania procesów decyzyjnych', 4),
 --                                                           ('UX Researcher', 'Przeprowadzanie badań użytkowników w celu wsparcia procesu projektowania', 3),
 --                                                           ('Backend Developer', 'Tworzenie logiki serwerowej i baz danych dla aplikacji internetowych', 4),
 --                                                           ('Game Developer', 'Tworzenie i optymalizacja gier na różne platformy', 3),
 --                                                           ('IT Project Manager', 'Prowadzenie i zarządzanie projektami informatycznymi od początku do końca', 6);
---
 --
 -- INSERT INTO skills (skill_name) VALUES
 --                                     ('Core Java'),

@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Alert } from 'react-bootstrap';
+import '../styles/AddJob.css';
 
 const AddJob = () => {
     const [title, setTitle] = useState('');
@@ -6,6 +9,7 @@ const AddJob = () => {
     const [experience, setExperience] = useState('');
     const [selectedSkills, setSelectedSkills] = useState([]);
     const [availableSkills, setAvailableSkills] = useState([]);
+    const [alert, setAlert] = useState({ show: false, variant: '', message: '' });
 
     useEffect(() => {
         const fetchSkills = async () => {
@@ -30,7 +34,7 @@ const AddJob = () => {
         const skills = selectedSkills.map(skillName => {
             return availableSkills.find(skill => skill.skillName === skillName);
         });
-        console.log("2" + skills)
+
         const jobPost = {
             title,
             description,
@@ -50,7 +54,7 @@ const AddJob = () => {
             });
 
             if (response.ok) {
-                alert('Job added successfully!');
+                setAlert({ show: true, variant: 'success', message: 'Job added successfully!' });
                 setTitle('');
                 setDescription('');
                 setExperience('');
@@ -58,11 +62,11 @@ const AddJob = () => {
             } else {
                 const errorText = await response.text();
                 console.error('Failed to add job:', errorText);
-                alert('Failed to add job');
+                setAlert({ show: true, variant: 'danger', message: 'Failed to add job' });
             }
         } catch (error) {
             console.error('Error:', error);
-            alert('Error adding job');
+            setAlert({ show: true, variant: 'danger', message: 'Error adding job' });
         }
     };
 
@@ -79,7 +83,8 @@ const AddJob = () => {
 
     return (
         <div className="container mt-5">
-            <h2 className="mb-4">Add Job</h2>
+            <h2 className="mb-4 text-center">Add Job</h2>
+            {alert.show && <Alert variant={alert.variant} onClose={() => setAlert({ show: false })} dismissible>{alert.message}</Alert>}
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="title" className="form-label">Title</label>
@@ -94,10 +99,10 @@ const AddJob = () => {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="description" className="form-label">Description</label>
-                    <input
-                        type="text"
+                    <textarea
                         className="form-control"
                         id="description"
+                        rows="3"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                         required
@@ -131,7 +136,7 @@ const AddJob = () => {
                         ))}
                     </select>
                 </div>
-                <button type="submit" className="btn btn-primary">Add Job</button>
+                <button type="submit" className="btn btn-primary btn-block">Add Job</button>
             </form>
         </div>
     );

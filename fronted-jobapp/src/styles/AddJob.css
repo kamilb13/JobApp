@@ -1,0 +1,13 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+textarea.form-control {
+    resize: none;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
