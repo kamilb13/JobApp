@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 public interface JobRepository extends JpaRepository<JobPost, Long> {
 
-    // po co to jest???
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO job_post_skills (job_post_id, skills) VALUES (?1, ?2)", nativeQuery = true)

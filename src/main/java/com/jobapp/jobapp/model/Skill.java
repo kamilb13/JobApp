@@ -18,7 +18,6 @@ public class Skill {
     @Column(name = "id")
     private int id;
 
-    //w pliku jsp musi byc nazwa pola z tej klasy a nie nazwa z tabeli z bazy!
     @Column(name = "skill_name", unique = true)
     private String skillName;
 }
