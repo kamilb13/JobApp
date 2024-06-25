@@ -5,6 +5,10 @@ import Home from "./components/Home";
 import Contact from "./components/Contact";
 import NavBar from "./components/NavBar";
 import AddJob from "./components/AddJob";
+import Register from "./components/Register";
+import Login from "./components/Login";
+import Test from "./components/Test";
+
 
 const App = () => {
     return (
@@ -15,6 +19,9 @@ const App = () => {
                     <Route path="/" element={<Home />} />
                     <Route path="/add-job" element={<AddJob />} />
                     <Route path="/contact" element={<Contact />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/test" element={<Test/>} />
                 </Routes>
             </div>
         </Router>
